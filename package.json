@@ -12,10 +12,14 @@
     "execa": "^4.0.0",
     "fs-extra": "^9.0.0",
     "json-diff": "^0.5.3",
+    "prettier": "^2.0.2",
     "semantic-release": "^17.0.0",
     "yargs": "^15.0.1"
   },
   "scripts": {
+    "lint": "prettier --check '{bin,lib}/*.js' README.md package.json",
+    "lint:fix": "prettier --write '{bin,lib}/*.js' README.md package.json",
+    "pretest": "npm run -s lint",
     "test": "node bin/octokit-webhooks.js check --cached"
   },
   "repository": {

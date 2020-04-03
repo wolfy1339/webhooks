@@ -1,12 +1,7 @@
 [
   {
     "name": "check_run",
-    "actions": [
-      "completed",
-      "created",
-      "requested_action",
-      "rerequested"
-    ],
+    "actions": ["completed", "created", "requested_action", "rerequested"],
     "examples": [
       {
         "action": "created",
@@ -317,11 +312,7 @@
   },
   {
     "name": "check_suite",
-    "actions": [
-      "completed",
-      "requested",
-      "rerequested"
-    ],
+    "actions": ["completed", "requested", "rerequested"],
     "examples": [
       {
         "action": "completed",
@@ -550,9 +541,7 @@
   },
   {
     "name": "commit_comment",
-    "actions": [
-      "created"
-    ],
+    "actions": ["created"],
     "examples": [
       {
         "action": "created",
@@ -1092,10 +1081,7 @@
   },
   {
     "name": "deploy_key",
-    "actions": [
-      "created",
-      "deleted"
-    ],
+    "actions": ["created", "deleted"],
     "examples": [
       {
         "action": "created",
@@ -1226,9 +1212,7 @@
   },
   {
     "name": "deployment",
-    "actions": [
-      "created"
-    ],
+    "actions": ["created"],
     "examples": [
       {
         "action": "created",
@@ -1387,9 +1371,7 @@
   },
   {
     "name": "deployment_status",
-    "actions": [
-      "created"
-    ],
+    "actions": ["created"],
     "examples": [
       {
         "action": "created",
@@ -1959,11 +1941,7 @@
   },
   {
     "name": "installation",
-    "actions": [
-      "created",
-      "deleted",
-      "new_permissions_accepted"
-    ],
+    "actions": ["created", "deleted", "new_permissions_accepted"],
     "examples": [
       {
         "action": "deleted",
@@ -2001,10 +1979,7 @@
             "contents": "read",
             "issues": "write"
           },
-          "events": [
-            "push",
-            "pull_request"
-          ],
+          "events": ["push", "pull_request"],
           "created_at": 1525109898,
           "updated_at": 1525109899,
           "single_file_name": "config.yml"
@@ -2043,10 +2018,7 @@
   },
   {
     "name": "installation_repositories",
-    "actions": [
-      "added",
-      "removed"
-    ],
+    "actions": ["added", "removed"],
     "examples": [
       {
         "action": "added",
@@ -2134,11 +2106,7 @@
   },
   {
     "name": "issue_comment",
-    "actions": [
-      "created",
-      "deleted",
-      "edited"
-    ],
+    "actions": ["created", "deleted", "edited"],
     "examples": [
       {
         "action": "created",
@@ -2691,11 +2659,7 @@
   },
   {
     "name": "label",
-    "actions": [
-      "created",
-      "deleted",
-      "edited"
-    ],
+    "actions": ["created", "deleted", "edited"],
     "examples": [
       {
         "action": "deleted",
@@ -2878,10 +2842,7 @@
             "price_model": "per-unit",
             "has_free_trial": true,
             "unit_name": "seat",
-            "bullets": [
-              "Is Basic",
-              "Because Basic "
-            ]
+            "bullets": ["Is Basic", "Because Basic "]
           }
         }
       }
@@ -2889,11 +2850,7 @@
   },
   {
     "name": "member",
-    "actions": [
-      "added",
-      "deleted",
-      "edited"
-    ],
+    "actions": ["added", "deleted", "edited"],
     "examples": [
       {
         "action": "added",
@@ -3036,10 +2993,7 @@
   },
   {
     "name": "membership",
-    "actions": [
-      "added",
-      "removed"
-    ],
+    "actions": ["added", "removed"],
     "examples": [
       {
         "action": "removed",
@@ -3116,9 +3070,7 @@
   },
   {
     "name": "meta",
-    "actions": [
-      "deleted"
-    ],
+    "actions": ["deleted"],
     "examples": [
       {
         "action": "deleted",
@@ -3128,9 +3080,7 @@
           "id": 101047067,
           "name": "web",
           "active": true,
-          "events": [
-            "meta"
-          ],
+          "events": ["meta"],
           "config": {
             "content_type": "json",
             "insecure_ssl": "0",
@@ -3257,13 +3207,7 @@
   },
   {
     "name": "milestone",
-    "actions": [
-      "closed",
-      "created",
-      "deleted",
-      "edited",
-      "opened"
-    ],
+    "actions": ["closed", "created", "deleted", "edited", "opened"],
     "examples": [
       {
         "action": "created",
@@ -3498,10 +3442,7 @@
   },
   {
     "name": "org_block",
-    "actions": [
-      "blocked",
-      "unblocked"
-    ],
+    "actions": ["blocked", "unblocked"],
     "examples": [
       {
         "action": "blocked",
@@ -3564,10 +3505,7 @@
   },
   {
     "name": "package",
-    "actions": [
-      "published",
-      "updated"
-    ],
+    "actions": ["published", "updated"],
     "examples": [
       {
         "action": "published",
@@ -3963,14 +3901,36 @@
     ]
   },
   {
+    "name": "ping",
+    "actions": [],
+    "example": [
+      {
+        "event": "ping",
+        "payload": {
+          "zen": "Design for failure.",
+          "hook_id": 123,
+          "hook": {
+            "type": "App",
+            "id": 123,
+            "name": "web",
+            "active": true,
+            "events": ["pull_request"],
+            "config": {
+              "content_type": "json",
+              "insecure_ssl": "0",
+              "url": "https://my-app.com/webhook"
+            },
+            "updated_at": "2018-12-11T21:18:31Z",
+            "created_at": "2018-12-11T21:18:31Z",
+            "app_id": 456
+          }
+        }
+      }
+    ]
+  },
+  {
     "name": "project_card",
-    "actions": [
-      "converted",
-      "created",
-      "deleted",
-      "edited",
-      "moved"
-    ],
+    "actions": ["converted", "created", "deleted", "edited", "moved"],
     "examples": [
       {
         "action": "created",
@@ -4125,12 +4085,7 @@
   },
   {
     "name": "project_column",
-    "actions": [
-      "created",
-      "deleted",
-      "edited",
-      "moved"
-    ],
+    "actions": ["created", "deleted", "edited", "moved"],
     "examples": [
       {
         "action": "created",
@@ -4263,13 +4218,7 @@
   },
   {
     "name": "project",
-    "actions": [
-      "closed",
-      "created",
-      "deleted",
-      "edited",
-      "reopened"
-    ],
+    "actions": ["closed", "created", "deleted", "edited", "reopened"],
     "examples": [
       {
         "action": "created",
@@ -5015,11 +4964,7 @@
   },
   {
     "name": "pull_request_review",
-    "actions": [
-      "dismissed",
-      "edited",
-      "submitted"
-    ],
+    "actions": ["dismissed", "edited", "submitted"],
     "examples": [
       {
         "action": "submitted",
@@ -5496,11 +5441,7 @@
   },
   {
     "name": "pull_request_review_comment",
-    "actions": [
-      "created",
-      "deleted",
-      "edited"
-    ],
+    "actions": ["created", "deleted", "edited"],
     "examples": [
       {
         "action": "created",
@@ -6710,11 +6651,7 @@
   },
   {
     "name": "repository_vulnerability_alert",
-    "actions": [
-      "create",
-      "dismiss",
-      "resolve"
-    ],
+    "actions": ["create", "dismiss", "resolve"],
     "examples": [
       {
         "action": "create",
@@ -6845,11 +6782,7 @@
   },
   {
     "name": "security_advisory",
-    "actions": [
-      "performed",
-      "published",
-      "updated"
-    ],
+    "actions": ["performed", "published", "updated"],
     "examples": [
       {
         "action": "published",
@@ -7077,10 +7010,7 @@
   },
   {
     "name": "star",
-    "actions": [
-      "created",
-      "deleted"
-    ],
+    "actions": ["created", "deleted"],
     "examples": [
       {
         "action": "created",
@@ -7744,9 +7674,7 @@
   },
   {
     "name": "watch",
-    "actions": [
-      "started"
-    ],
+    "actions": ["started"],
     "examples": [
       {
         "action": "started",
@@ -7863,36 +7791,6 @@
           "received_events_url": "https://api.github.com/users/Codertocat/received_events",
           "type": "User",
           "site_admin": false
-        }
-      }
-    ]
-  },
-  {
-    "name": "ping",
-    "actions": [],
-    "example": [
-      {
-        "event": "ping",
-        "payload": {
-          "zen": "Design for failure.",
-          "hook_id": 123,
-          "hook": {
-            "type": "App",
-            "id": 123,
-            "name": "web",
-            "active": true,
-            "events": [
-              "pull_request"
-            ],
-            "config": {
-              "content_type": "json",
-              "insecure_ssl": "0",
-              "url": "https://my-app.com/webhook"
-            },
-            "updated_at": "2018-12-11T21:18:31Z",
-            "created_at": "2018-12-11T21:18:31Z",
-            "app_id": 456
-          }
         }
       }
     ]
