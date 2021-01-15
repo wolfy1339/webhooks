@@ -18,6 +18,7 @@
     "sender"
   ],
   "properties": {
+    "$schema": { "type": "string" },
     "ref": { "type": "string" },
     "before": { "type": "string" },
     "after": { "type": "string" },
