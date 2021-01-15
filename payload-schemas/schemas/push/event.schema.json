@@ -126,7 +126,7 @@
       },
       "additionalProperties": false
     },
-    "repository": { "$ref": "common/repository.schema.json" },
+    "repository": { "$ref": "../common/repository.schema.json" },
     "pusher": {
       "type": "object",
       "required": ["name", "email"],
@@ -136,9 +136,9 @@
       },
       "additionalProperties": false
     },
-    "sender": { "$ref": "common/user.schema.json" },
-    "installation": { "$ref": "common/installation.schema.json" },
-    "organization": { "$ref": "common/organization.schema.json" }
+    "sender": { "$ref": "../common/user.schema.json" },
+    "installation": { "$ref": "../common/installation.schema.json" },
+    "organization": { "$ref": "../common/organization.schema.json" }
   },
   "additionalProperties": false,
   "title": "push event"
