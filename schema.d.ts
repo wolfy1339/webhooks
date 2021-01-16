@@ -4004,12 +4004,7 @@ export interface MarketplacePurchaseCancelledEvent {
     email: string;
   };
   marketplace_purchase: {
-    account: {
-      type: string;
-      id: number;
-      login: string;
-      organization_billing_email: string;
-    };
+    account: MarketplaceAccount;
     billing_cycle: string;
     unit_count: number;
     on_free_trial: boolean;
@@ -4028,12 +4023,7 @@ export interface MarketplacePurchaseCancelledEvent {
     };
   };
   previous_marketplace_purchase?: {
-    account: {
-      type: string;
-      id: number;
-      login: string;
-      organization_billing_email: string;
-    };
+    account: MarketplaceAccount;
     billing_cycle: string;
     unit_count: number;
     on_free_trial: boolean;
@@ -4051,6 +4041,12 @@ export interface MarketplacePurchaseCancelledEvent {
       bullets: string[];
     };
   };
+}
+export interface MarketplaceAccount {
+  type: string;
+  id: number;
+  login: string;
+  organization_billing_email: string;
 }
 export interface MarketplacePurchaseChangedEvent {
   action: "changed";
@@ -4076,12 +4072,7 @@ export interface MarketplacePurchaseChangedEvent {
     email: string;
   };
   marketplace_purchase: {
-    account: {
-      type: string;
-      id: number;
-      login: string;
-      organization_billing_email: string;
-    };
+    account: MarketplaceAccount;
     billing_cycle: string;
     unit_count: number;
     on_free_trial: boolean;
@@ -4100,12 +4091,7 @@ export interface MarketplacePurchaseChangedEvent {
     };
   };
   previous_marketplace_purchase?: {
-    account: {
-      type: string;
-      id: number;
-      login: string;
-      organization_billing_email: string;
-    };
+    account: MarketplaceAccount;
     billing_cycle: string;
     unit_count: number;
     on_free_trial: boolean;
@@ -4148,12 +4134,7 @@ export interface MarketplacePurchasePurchasedEvent {
     email: string;
   };
   marketplace_purchase: {
-    account: {
-      type: string;
-      id: number;
-      login: string;
-      organization_billing_email: string;
-    };
+    account: MarketplaceAccount;
     billing_cycle: string;
     unit_count: number;
     on_free_trial: boolean;
@@ -4172,12 +4153,7 @@ export interface MarketplacePurchasePurchasedEvent {
     };
   };
   previous_marketplace_purchase?: {
-    account: {
-      type: string;
-      id: number;
-      login: string;
-      organization_billing_email: string;
-    };
+    account: MarketplaceAccount;
     billing_cycle: string;
     unit_count: number;
     on_free_trial: boolean;

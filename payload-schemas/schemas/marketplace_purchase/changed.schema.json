@@ -62,17 +62,7 @@
         "plan"
       ],
       "properties": {
-        "account": {
-          "type": "object",
-          "required": ["type", "id", "login", "organization_billing_email"],
-          "properties": {
-            "type": { "type": "string" },
-            "id": { "type": "integer" },
-            "login": { "type": "string" },
-            "organization_billing_email": { "type": "string" }
-          },
-          "additionalProperties": false
-        },
+        "account": { "$ref": "common/marketplace-account.schema.json" },
         "billing_cycle": { "type": "string" },
         "unit_count": { "type": "integer" },
         "on_free_trial": { "type": "boolean" },
@@ -118,17 +108,7 @@
         "plan"
       ],
       "properties": {
-        "account": {
-          "type": "object",
-          "required": ["type", "id", "login", "organization_billing_email"],
-          "properties": {
-            "type": { "type": "string" },
-            "id": { "type": "integer" },
-            "login": { "type": "string" },
-            "organization_billing_email": { "type": "string" }
-          },
-          "additionalProperties": false
-        },
+        "account": { "$ref": "common/marketplace-account.schema.json" },
         "billing_cycle": { "type": "string" },
         "unit_count": { "type": "integer" },
         "on_free_trial": { "type": "boolean" },
