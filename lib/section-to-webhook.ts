@@ -76,16 +76,17 @@ const getProperties = ($: cheerio.Root): Webhook["properties"] => {
     },
     obj: Record<string, any>
   ) => {
-    const matches = [...str.matchAll(/(\w+)/g)];
-    return matches.reduce((cursor, [, key], index) => {
+    const matches = Array.from(str.matchAll(/(\w+)/g), m => m.slice(1,4));
+    return matches.reduce((cursor, [key, array, arrayKey], index) => {
+      const propKey = key ?? arrayKey;
       if (index + 1 === matches.length) {
-        return (cursor[key] = value);
+        return (cursor[propKey] = value);
       }
 
       if (typeof cursor[key] === "string") {
         return cursor;
       }
-      return (cursor[key] = { ...cursor[key] });
+      return (cursor[propKey] = { 'type': array === '[]' ? 'array' : 'object', ...cursor[key] });
     }, obj);
   };
 

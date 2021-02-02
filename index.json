@@ -20,6 +20,7 @@
           "description": "The name of the check run."
         },
         "check_suite": {
+          "type": "object",
           "id": {
             "type": "integer",
             "description": "The id of the check suite that this check run is part of."
@@ -10404,6 +10405,7 @@
         "type": "object",
         "description": "The changes to the comment if the action was `edited`.",
         "body": {
+          "type": "object",
           "from": {
             "type": "string",
             "description": "The previous version of the body if the action was `edited`."
@@ -12987,12 +12989,14 @@
         "type": "object",
         "description": "The changes to the issue if the action was `edited`.",
         "title": {
+          "type": "object",
           "from": {
             "type": "string",
             "description": "The previous version of the title if the action was `edited`."
           }
         },
         "body": {
+          "type": "object",
           "from": {
             "type": "string",
             "description": "The previous version of the body if the action was `edited`."
@@ -18545,12 +18549,14 @@
         "type": "object",
         "description": "The changes to the label if the action was `edited`.",
         "name": {
+          "type": "object",
           "from": {
             "type": "string",
             "description": "The previous version of the name if the action was `edited`."
           }
         },
         "color": {
+          "type": "object",
           "from": {
             "type": "string",
             "description": "The previous version of the color if the action was `edited`."
@@ -19584,6 +19590,7 @@
         "type": "object",
         "description": "The changes to the collaborator permissions if the action was `edited`.",
         "old_permission": {
+          "type": "object",
           "from": {
             "type": "string",
             "description": "The previous permissions of the collaborator if the action was `edited`."
@@ -20795,12 +20802,14 @@
           "description": "The previous version of the description if the action was `edited`."
         },
         "due_on": {
+          "type": "object",
           "from": {
             "type": "string",
             "description": "The previous version of the due date if the action was `edited`."
           }
         },
         "title": {
+          "type": "object",
           "from": {
             "type": "string",
             "description": "The previous version of the title if the action was `edited`."
@@ -23462,6 +23471,7 @@
         "type": "object",
         "description": "The changes to the project card if the action was `edited` or `converted`.",
         "note": {
+          "type": "object",
           "from": {
             "type": "string",
             "description": "The previous version of the note if the action was `edited` or `converted`."
@@ -24590,6 +24600,7 @@
         "type": "object",
         "description": "The changes to the project column if the action was `edited`.",
         "name": {
+          "type": "object",
           "from": {
             "type": "string",
             "description": "The previous version of the name if the action was `edited`."
@@ -25018,12 +25029,14 @@
         "type": "object",
         "description": "The changes to the project if the action was `edited`.",
         "name": {
+          "type": "object",
           "from": {
             "type": "string",
             "description": "The previous version of the name if the action was `edited`."
           }
         },
         "body": {
+          "type": "object",
           "from": {
             "type": "string",
             "description": "The previous version of the body if the action was `edited`."
@@ -25920,12 +25933,14 @@
         "type": "object",
         "description": "The changes to the comment if the action was `edited`.",
         "title": {
+          "type": "object",
           "from": {
             "type": "string",
             "description": "The previous version of the title if the action was `edited`."
           }
         },
         "body": {
+          "type": "object",
           "from": {
             "type": "string",
             "description": "The previous version of the body if the action was `edited`."
@@ -39918,7 +39933,9 @@
         "description": "The review that was affected."
       },
       "changes": {
+        "type": "object",
         "body": {
+          "type": "object",
           "from": {
             "type": "string",
             "description": "The previous version of the body if the action was `edited`."
@@ -42048,6 +42065,7 @@
         "type": "object",
         "description": "The changes to the comment if the action was `edited`.",
         "body": {
+          "type": "object",
           "from": {
             "type": "string",
             "description": "The previous version of the body if the action was `edited`."
@@ -45724,13 +45742,16 @@
     ],
     "properties": {
       "changes": {
+        "type": "object",
         "body": {
+          "type": "object",
           "from": {
             "type": "string",
             "description": "The previous version of the body if the action was `edited`."
           }
         },
         "name": {
+          "type": "object",
           "from": {
             "type": "string",
             "description": "The previous version of the name if the action was `edited`."
@@ -49753,13 +49774,16 @@
         "description": "The `pending_cancellation` and `pending_tier_change` event types will include the date the cancellation or tier change will take effect."
       },
       "changes": {
+        "type": "object",
         "tier": {
+          "type": "object",
           "from": {
             "type": "object",
             "description": "The `tier_changed` and `pending_tier_change` will include the original tier before the change or pending change. For more information, see the [pending tier change payload](/en/webhooks/event-payloads#webhook-payload-example-when-someone-downgrades-a-sponsorship)."
           }
         },
         "privacy_level": {
+          "type": "object",
           "from": {
             "type": "string",
             "description": "The `edited` event types include the details about the change when someone edits a sponsorship to change the privacy."
@@ -51416,20 +51440,25 @@
           "description": "The previous version of the description if the action was `edited`."
         },
         "name": {
+          "type": "object",
           "from": {
             "type": "string",
             "description": "The previous version of the name if the action was `edited`."
           }
         },
         "privacy": {
+          "type": "object",
           "from": {
             "type": "string",
             "description": "The previous version of the team's privacy if the action was `edited`."
           }
         },
         "repository": {
+          "type": "object",
           "permissions": {
+            "type": "object",
             "from": {
+              "type": "object",
               "admin": {
                 "type": "boolean",
                 "description": "The previous version of the team member's `admin` permission on a repository, if the action was `edited`."
