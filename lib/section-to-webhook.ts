@@ -81,6 +81,8 @@ const getProperties = ($: cheerio.Root): Webhook["properties"] => {
       if (index + 1 === matches.length) {
         return (cursor[key] = value);
       }
+      
+      if (typeof cursor[key] === 'string') { return cursor }
       return (cursor[key] = { ...cursor[key] });
     }, obj);
   };
