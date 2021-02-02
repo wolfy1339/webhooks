@@ -6,35 +6,37 @@
     "properties": {
       "check_run": {
         "type": "object",
-        "description": "The [check\\_run](https://docs.github.com/en/rest/reference/checks#get-a-check-run)."
-      },
-      "check_run[status]": {
-        "type": "string",
-        "description": "The current status of the check run. Can be `queued`, `in_progress`, or `completed`."
-      },
-      "check_run[conclusion]": {
-        "type": "string",
-        "description": "The result of the completed check run. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, `action_required` or `stale`. This value will be `null` until the check run has `completed`."
-      },
-      "check_run[name]": {
-        "type": "string",
-        "description": "The name of the check run."
-      },
-      "check_run[check_suite][id]": {
-        "type": "integer",
-        "description": "The id of the check suite that this check run is part of."
-      },
-      "check_run[check_suite][pull_requests]": {
-        "type": "array",
-        "description": "An array of pull requests that match this check suite. A pull request matches a check suite if they have the same `head_sha` and `head_branch`. When the check suite's `head_branch` is in a forked repository it will be `null` and the `pull_requests` array will be empty."
+        "description": "The [check\\_run](https://docs.github.com/en/rest/reference/checks#get-a-check-run).",
+        "status": {
+          "type": "string",
+          "description": "The current status of the check run. Can be `queued`, `in_progress`, or `completed`."
+        },
+        "conclusion": {
+          "type": "string",
+          "description": "The result of the completed check run. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, `action_required` or `stale`. This value will be `null` until the check run has `completed`."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the check run."
+        },
+        "check_suite": {
+          "id": {
+            "type": "integer",
+            "description": "The id of the check suite that this check run is part of."
+          },
+          "pull_requests": {
+            "type": "array",
+            "description": "An array of pull requests that match this check suite. A pull request matches a check suite if they have the same `head_sha` and `head_branch`. When the check suite's `head_branch` is in a forked repository it will be `null` and the `pull_requests` array will be empty."
+          }
+        }
       },
       "requested_action": {
         "type": "object",
-        "description": "The action requested by the user."
-      },
-      "requested_action[identifier]": {
-        "type": "string",
-        "description": "The integrator reference of the action requested by the user."
+        "description": "The action requested by the user.",
+        "identifier": {
+          "type": "string",
+          "description": "The integrator reference of the action requested by the user."
+        }
       },
       "repository": {
         "type": "object",
@@ -2682,31 +2684,31 @@
     "properties": {
       "check_suite": {
         "type": "object",
-        "description": "The [check\\_suite](https://docs.github.com/en/rest/reference/checks#suites)."
-      },
-      "check_suite[head_branch]": {
-        "type": "string",
-        "description": "The head branch name the changes are on."
-      },
-      "check_suite[head_sha]": {
-        "type": "string",
-        "description": "The SHA of the most recent commit for this check suite."
-      },
-      "check_suite[status]": {
-        "type": "string",
-        "description": "The summary status for all check runs that are part of the check suite. Can be `requested`, `in_progress`, or `completed`."
-      },
-      "check_suite[conclusion]": {
-        "type": "string",
-        "description": "The summary conclusion for all check runs that are part of the check suite. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, `action_required` or `stale`. This value will be `null` until the check run has `completed`."
-      },
-      "check_suite[url]": {
-        "type": "string",
-        "description": "URL that points to the check suite API resource."
-      },
-      "check_suite[pull_requests]": {
-        "type": "array",
-        "description": "An array of pull requests that match this check suite. A pull request matches a check suite if they have the same `head_sha` and `head_branch`. When the check suite's `head_branch` is in a forked repository it will be `null` and the `pull_requests` array will be empty."
+        "description": "The [check\\_suite](https://docs.github.com/en/rest/reference/checks#suites).",
+        "head_branch": {
+          "type": "string",
+          "description": "The head branch name the changes are on."
+        },
+        "head_sha": {
+          "type": "string",
+          "description": "The SHA of the most recent commit for this check suite."
+        },
+        "status": {
+          "type": "string",
+          "description": "The summary status for all check runs that are part of the check suite. Can be `requested`, `in_progress`, or `completed`."
+        },
+        "conclusion": {
+          "type": "string",
+          "description": "The summary conclusion for all check runs that are part of the check suite. Can be one of `success`, `failure`, `neutral`, `cancelled`, `timed_out`, `action_required` or `stale`. This value will be `null` until the check run has `completed`."
+        },
+        "url": {
+          "type": "string",
+          "description": "URL that points to the check suite API resource."
+        },
+        "pull_requests": {
+          "type": "array",
+          "description": "An array of pull requests that match this check suite. A pull request matches a check suite if they have the same `head_sha` and `head_branch`. When the check suite's `head_branch` is in a forked repository it will be `null` and the `pull_requests` array will be empty."
+        }
       },
       "repository": {
         "type": "object",
@@ -8002,19 +8004,18 @@
     "properties": {
       "deployment_status": {
         "type": "object",
-        "description": "The [deployment status](https://docs.github.com/en/rest/reference/repos#list-deployment-statuses)."
-      },
-      "deployment_status[\"state\"]": {
-        "type": "string",
-        "description": "The new state. Can be `pending`, `success`, `failure`, or `error`."
-      },
-      "deployment_status[\"target_url\"]": {
-        "type": "string",
-        "description": "The optional link added to the status."
-      },
-      "deployment_status[\"description\"]": {
-        "type": "string",
-        "description": "The optional human-readable description added to the status."
+        "description": {
+          "type": "string",
+          "description": "The optional human-readable description added to the status."
+        },
+        "state": {
+          "type": "string",
+          "description": "The new state. Can be `pending`, `success`, `failure`, or `error`."
+        },
+        "target_url": {
+          "type": "string",
+          "description": "The optional link added to the status."
+        }
       },
       "deployment": {
         "type": "object",
@@ -9334,27 +9335,27 @@
     "properties": {
       "pages": {
         "type": "array",
-        "description": "The pages that were updated."
-      },
-      "pages[][page_name]": {
-        "type": "string",
-        "description": "The name of the page."
-      },
-      "pages[][title]": {
-        "type": "string",
-        "description": "The current page title."
-      },
-      "pages[][action]": {
-        "type": "string",
-        "description": "The action that was performed on the page. Can be `created` or `edited`."
-      },
-      "pages[][sha]": {
-        "type": "string",
-        "description": "The latest commit SHA of the page."
-      },
-      "pages[][html_url]": {
-        "type": "string",
-        "description": "Points to the HTML wiki page."
+        "description": "The pages that were updated.",
+        "page_name": {
+          "type": "string",
+          "description": "The name of the page."
+        },
+        "title": {
+          "type": "string",
+          "description": "The current page title."
+        },
+        "action": {
+          "type": "string",
+          "description": "The action that was performed on the page. Can be `created` or `edited`."
+        },
+        "sha": {
+          "type": "string",
+          "description": "The latest commit SHA of the page."
+        },
+        "html_url": {
+          "type": "string",
+          "description": "Points to the HTML wiki page."
+        }
       },
       "repository": {
         "type": "object",
@@ -10401,11 +10402,13 @@
     "properties": {
       "changes": {
         "type": "object",
-        "description": "The changes to the comment if the action was `edited`."
-      },
-      "changes[body][from]": {
-        "type": "string",
-        "description": "The previous version of the body if the action was `edited`."
+        "description": "The changes to the comment if the action was `edited`.",
+        "body": {
+          "from": {
+            "type": "string",
+            "description": "The previous version of the body if the action was `edited`."
+          }
+        }
       },
       "issue": {
         "type": "object",
@@ -12982,15 +12985,19 @@
       },
       "changes": {
         "type": "object",
-        "description": "The changes to the issue if the action was `edited`."
-      },
-      "changes[title][from]": {
-        "type": "string",
-        "description": "The previous version of the title if the action was `edited`."
-      },
-      "changes[body][from]": {
-        "type": "string",
-        "description": "The previous version of the body if the action was `edited`."
+        "description": "The changes to the issue if the action was `edited`.",
+        "title": {
+          "from": {
+            "type": "string",
+            "description": "The previous version of the title if the action was `edited`."
+          }
+        },
+        "body": {
+          "from": {
+            "type": "string",
+            "description": "The previous version of the body if the action was `edited`."
+          }
+        }
       },
       "assignee": {
         "type": "object",
@@ -18536,15 +18543,19 @@
       },
       "changes": {
         "type": "object",
-        "description": "The changes to the label if the action was `edited`."
-      },
-      "changes[name][from]": {
-        "type": "string",
-        "description": "The previous version of the name if the action was `edited`."
-      },
-      "changes[color][from]": {
-        "type": "string",
-        "description": "The previous version of the color if the action was `edited`."
+        "description": "The changes to the label if the action was `edited`.",
+        "name": {
+          "from": {
+            "type": "string",
+            "description": "The previous version of the name if the action was `edited`."
+          }
+        },
+        "color": {
+          "from": {
+            "type": "string",
+            "description": "The previous version of the color if the action was `edited`."
+          }
+        }
       },
       "repository": {
         "type": "object",
@@ -19571,11 +19582,13 @@
       },
       "changes": {
         "type": "object",
-        "description": "The changes to the collaborator permissions if the action was `edited`."
-      },
-      "changes[old_permission][from]": {
-        "type": "string",
-        "description": "The previous permissions of the collaborator if the action was `edited`."
+        "description": "The changes to the collaborator permissions if the action was `edited`.",
+        "old_permission": {
+          "from": {
+            "type": "string",
+            "description": "The previous permissions of the collaborator if the action was `edited`."
+          }
+        }
       },
       "repository": {
         "type": "object",
@@ -20776,19 +20789,80 @@
       },
       "changes": {
         "type": "object",
-        "description": "The changes to the milestone if the action was `edited`."
-      },
-      "changes[description][from]": {
-        "type": "string",
-        "description": "The previous version of the description if the action was `edited`."
-      },
-      "changes[due_on][from]": {
-        "type": "string",
-        "description": "The previous version of the due date if the action was `edited`."
-      },
-      "changes[title][from]": {
-        "type": "string",
-        "description": "The previous version of the title if the action was `edited`."
+        "description": {
+          "0": "T",
+          "1": "h",
+          "2": "e",
+          "3": " ",
+          "4": "c",
+          "5": "h",
+          "6": "a",
+          "7": "n",
+          "8": "g",
+          "9": "e",
+          "10": "s",
+          "11": " ",
+          "12": "t",
+          "13": "o",
+          "14": " ",
+          "15": "t",
+          "16": "h",
+          "17": "e",
+          "18": " ",
+          "19": "m",
+          "20": "i",
+          "21": "l",
+          "22": "e",
+          "23": "s",
+          "24": "t",
+          "25": "o",
+          "26": "n",
+          "27": "e",
+          "28": " ",
+          "29": "i",
+          "30": "f",
+          "31": " ",
+          "32": "t",
+          "33": "h",
+          "34": "e",
+          "35": " ",
+          "36": "a",
+          "37": "c",
+          "38": "t",
+          "39": "i",
+          "40": "o",
+          "41": "n",
+          "42": " ",
+          "43": "w",
+          "44": "a",
+          "45": "s",
+          "46": " ",
+          "47": "`",
+          "48": "e",
+          "49": "d",
+          "50": "i",
+          "51": "t",
+          "52": "e",
+          "53": "d",
+          "54": "`",
+          "55": ".",
+          "from": {
+            "type": "string",
+            "description": "The previous version of the description if the action was `edited`."
+          }
+        },
+        "due_on": {
+          "from": {
+            "type": "string",
+            "description": "The previous version of the due date if the action was `edited`."
+          }
+        },
+        "title": {
+          "from": {
+            "type": "string",
+            "description": "The previous version of the title if the action was `edited`."
+          }
+        }
       },
       "repository": {
         "type": "object",
@@ -23064,11 +23138,11 @@
       },
       "hook": {
         "type": "object",
-        "description": "The [webhook configuration](https://docs.github.com/en/rest/reference/repos#get-a-repository-webhook)."
-      },
-      "hook[app_id]": {
-        "type": "integer",
-        "description": "When you register a new GitHub App, GitHub sends a ping event to the **webhook URL** you specified during registration. The event contains the `app_id`, which is required for [authenticating](/en/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps) an app."
+        "description": "The [webhook configuration](https://docs.github.com/en/rest/reference/repos#get-a-repository-webhook).",
+        "app_id": {
+          "type": "integer",
+          "description": "When you register a new GitHub App, GitHub sends a ping event to the **webhook URL** you specified during registration. The event contains the `app_id`, which is required for [authenticating](/en/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps) an app."
+        }
       },
       "repository": {
         "type": "object",
@@ -23443,11 +23517,13 @@
     "properties": {
       "changes": {
         "type": "object",
-        "description": "The changes to the project card if the action was `edited` or `converted`."
-      },
-      "changes[note][from]": {
-        "type": "string",
-        "description": "The previous version of the note if the action was `edited` or `converted`."
+        "description": "The changes to the project card if the action was `edited` or `converted`.",
+        "note": {
+          "from": {
+            "type": "string",
+            "description": "The previous version of the note if the action was `edited` or `converted`."
+          }
+        }
       },
       "after_id": {
         "type": "integer",
@@ -24569,11 +24645,13 @@
     "properties": {
       "changes": {
         "type": "object",
-        "description": "The changes to the project column if the action was `edited`."
-      },
-      "changes[name][from]": {
-        "type": "string",
-        "description": "The previous version of the name if the action was `edited`."
+        "description": "The changes to the project column if the action was `edited`.",
+        "name": {
+          "from": {
+            "type": "string",
+            "description": "The previous version of the name if the action was `edited`."
+          }
+        }
       },
       "after_id": {
         "type": "integer",
@@ -24995,15 +25073,19 @@
     "properties": {
       "changes": {
         "type": "object",
-        "description": "The changes to the project if the action was `edited`."
-      },
-      "changes[name][from]": {
-        "type": "string",
-        "description": "The previous version of the name if the action was `edited`."
-      },
-      "changes[body][from]": {
-        "type": "string",
-        "description": "The previous version of the body if the action was `edited`."
+        "description": "The changes to the project if the action was `edited`.",
+        "name": {
+          "from": {
+            "type": "string",
+            "description": "The previous version of the name if the action was `edited`."
+          }
+        },
+        "body": {
+          "from": {
+            "type": "string",
+            "description": "The previous version of the body if the action was `edited`."
+          }
+        }
       },
       "project": {
         "type": "object",
@@ -25893,15 +25975,19 @@
       },
       "changes": {
         "type": "object",
-        "description": "The changes to the comment if the action was `edited`."
-      },
-      "changes[title][from]": {
-        "type": "string",
-        "description": "The previous version of the title if the action was `edited`."
-      },
-      "changes[body][from]": {
-        "type": "string",
-        "description": "The previous version of the body if the action was `edited`."
+        "description": "The changes to the comment if the action was `edited`.",
+        "title": {
+          "from": {
+            "type": "string",
+            "description": "The previous version of the title if the action was `edited`."
+          }
+        },
+        "body": {
+          "from": {
+            "type": "string",
+            "description": "The previous version of the body if the action was `edited`."
+          }
+        }
       },
       "pull_request": {
         "type": "object",
@@ -39888,9 +39974,13 @@
         "type": "object",
         "description": "The review that was affected."
       },
-      "changes[body][from]": {
-        "type": "string",
-        "description": "The previous version of the body if the action was `edited`."
+      "changes": {
+        "body": {
+          "from": {
+            "type": "string",
+            "description": "The previous version of the body if the action was `edited`."
+          }
+        }
       },
       "repository": {
         "type": "object",
@@ -42013,11 +42103,13 @@
     "properties": {
       "changes": {
         "type": "object",
-        "description": "The changes to the comment if the action was `edited`."
-      },
-      "changes[body][from]": {
-        "type": "string",
-        "description": "The previous version of the body if the action was `edited`."
+        "description": "The changes to the comment if the action was `edited`.",
+        "body": {
+          "from": {
+            "type": "string",
+            "description": "The previous version of the body if the action was `edited`."
+          }
+        }
       },
       "pull_request": {
         "type": "object",
@@ -44722,51 +44814,51 @@
       },
       "commits": {
         "type": "array",
-        "description": "An array of commit objects describing the pushed commits. (The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](https://docs.github.com/en/rest/reference/repos#commits) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.)"
-      },
-      "commits[][id]": {
-        "type": "string",
-        "description": "The SHA of the commit."
-      },
-      "commits[][timestamp]": {
-        "type": "string",
-        "description": "The ISO 8601 timestamp of the commit."
-      },
-      "commits[][message]": {
-        "type": "string",
-        "description": "The commit message."
-      },
-      "commits[][author]": {
-        "type": "object",
-        "description": "The git author of the commit."
-      },
-      "commits[][author][name]": {
-        "type": "string",
-        "description": "The git author's name."
-      },
-      "commits[][author][email]": {
-        "type": "string",
-        "description": "The git author's email address."
-      },
-      "commits[][url]": {
-        "type": "url",
-        "description": "URL that points to the commit API resource."
-      },
-      "commits[][distinct]": {
-        "type": "boolean",
-        "description": "Whether this commit is distinct from any that have been pushed before."
-      },
-      "commits[][added]": {
-        "type": "array",
-        "description": "An array of files added in the commit."
-      },
-      "commits[][modified]": {
-        "type": "array",
-        "description": "An array of files modified by the commit."
-      },
-      "commits[][removed]": {
-        "type": "array",
-        "description": "An array of files removed in the commit."
+        "description": "An array of commit objects describing the pushed commits. (The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](https://docs.github.com/en/rest/reference/repos#commits) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.)",
+        "id": {
+          "type": "string",
+          "description": "The SHA of the commit."
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "The ISO 8601 timestamp of the commit."
+        },
+        "message": {
+          "type": "string",
+          "description": "The commit message."
+        },
+        "author": {
+          "type": "object",
+          "description": "The git author of the commit.",
+          "name": {
+            "type": "string",
+            "description": "The git author's name."
+          },
+          "email": {
+            "type": "string",
+            "description": "The git author's email address."
+          }
+        },
+        "url": {
+          "type": "url",
+          "description": "URL that points to the commit API resource."
+        },
+        "distinct": {
+          "type": "boolean",
+          "description": "Whether this commit is distinct from any that have been pushed before."
+        },
+        "added": {
+          "type": "array",
+          "description": "An array of files added in the commit."
+        },
+        "modified": {
+          "type": "array",
+          "description": "An array of files modified by the commit."
+        },
+        "removed": {
+          "type": "array",
+          "description": "An array of files removed in the commit."
+        }
       },
       "pusher": {
         "type": "object",
@@ -45688,13 +45780,19 @@
       "unpublished"
     ],
     "properties": {
-      "changes[body][from]": {
-        "type": "string",
-        "description": "The previous version of the body if the action was `edited`."
-      },
-      "changes[name][from]": {
-        "type": "string",
-        "description": "The previous version of the name if the action was `edited`."
+      "changes": {
+        "body": {
+          "from": {
+            "type": "string",
+            "description": "The previous version of the body if the action was `edited`."
+          }
+        },
+        "name": {
+          "from": {
+            "type": "string",
+            "description": "The previous version of the name if the action was `edited`."
+          }
+        }
       },
       "release": {
         "type": "object",
@@ -49711,13 +49809,19 @@
         "type": "string",
         "description": "The `pending_cancellation` and `pending_tier_change` event types will include the date the cancellation or tier change will take effect."
       },
-      "changes[tier][from]": {
-        "type": "object",
-        "description": "The `tier_changed` and `pending_tier_change` will include the original tier before the change or pending change. For more information, see the [pending tier change payload](/en/webhooks/event-payloads#webhook-payload-example-when-someone-downgrades-a-sponsorship)."
-      },
-      "changes[privacy_level][from]": {
-        "type": "string",
-        "description": "The `edited` event types include the details about the change when someone edits a sponsorship to change the privacy."
+      "changes": {
+        "tier": {
+          "from": {
+            "type": "object",
+            "description": "The `tier_changed` and `pending_tier_change` will include the original tier before the change or pending change. For more information, see the [pending tier change payload](/en/webhooks/event-payloads#webhook-payload-example-when-someone-downgrades-a-sponsorship)."
+          }
+        },
+        "privacy_level": {
+          "from": {
+            "type": "string",
+            "description": "The `edited` event types include the details about the change when someone edits a sponsorship to change the privacy."
+          }
+        }
       },
       "sender": {
         "type": "object",
@@ -51363,31 +51467,93 @@
       },
       "changes": {
         "type": "object",
-        "description": "The changes to the team if the action was `edited`."
-      },
-      "changes[description][from]": {
-        "type": "string",
-        "description": "The previous version of the description if the action was `edited`."
-      },
-      "changes[name][from]": {
-        "type": "string",
-        "description": "The previous version of the name if the action was `edited`."
-      },
-      "changes[privacy][from]": {
-        "type": "string",
-        "description": "The previous version of the team's privacy if the action was `edited`."
-      },
-      "changes[repository][permissions][from][admin]": {
-        "type": "boolean",
-        "description": "The previous version of the team member's `admin` permission on a repository, if the action was `edited`."
-      },
-      "changes[repository][permissions][from][pull]": {
-        "type": "boolean",
-        "description": "The previous version of the team member's `pull` permission on a repository, if the action was `edited`."
-      },
-      "changes[repository][permissions][from][push]": {
-        "type": "boolean",
-        "description": "The previous version of the team member's `push` permission on a repository, if the action was `edited`."
+        "description": {
+          "0": "T",
+          "1": "h",
+          "2": "e",
+          "3": " ",
+          "4": "c",
+          "5": "h",
+          "6": "a",
+          "7": "n",
+          "8": "g",
+          "9": "e",
+          "10": "s",
+          "11": " ",
+          "12": "t",
+          "13": "o",
+          "14": " ",
+          "15": "t",
+          "16": "h",
+          "17": "e",
+          "18": " ",
+          "19": "t",
+          "20": "e",
+          "21": "a",
+          "22": "m",
+          "23": " ",
+          "24": "i",
+          "25": "f",
+          "26": " ",
+          "27": "t",
+          "28": "h",
+          "29": "e",
+          "30": " ",
+          "31": "a",
+          "32": "c",
+          "33": "t",
+          "34": "i",
+          "35": "o",
+          "36": "n",
+          "37": " ",
+          "38": "w",
+          "39": "a",
+          "40": "s",
+          "41": " ",
+          "42": "`",
+          "43": "e",
+          "44": "d",
+          "45": "i",
+          "46": "t",
+          "47": "e",
+          "48": "d",
+          "49": "`",
+          "50": ".",
+          "from": {
+            "type": "string",
+            "description": "The previous version of the description if the action was `edited`."
+          }
+        },
+        "name": {
+          "from": {
+            "type": "string",
+            "description": "The previous version of the name if the action was `edited`."
+          }
+        },
+        "privacy": {
+          "from": {
+            "type": "string",
+            "description": "The previous version of the team's privacy if the action was `edited`."
+          }
+        },
+        "repository": {
+          "permissions": {
+            "from": {
+              "admin": {
+                "type": "boolean",
+                "description": "The previous version of the team member's `admin` permission on a repository, if the action was `edited`."
+              },
+              "pull": {
+                "type": "boolean",
+                "description": "The previous version of the team member's `pull` permission on a repository, if the action was `edited`."
+              },
+              "push": {
+                "type": "boolean",
+                "description": "The previous version of the team member's `push` permission on a repository, if the action was `edited`."
+              }
+            }
+          }
+        }
       },
       "repository": {
         "type": "object",

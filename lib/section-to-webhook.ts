@@ -1,8 +1,9 @@
 import { strict as assert } from "assert";
 import cheerio from "cheerio";
-import { JSONSchema7TypeName } from "json-schema";
 import TurndownService from "turndown";
 import { Section, Webhook } from ".";
+
+import type { JSONSchema7TypeName } from "json-schema";
 
 const turndownService = new TurndownService({
   codeBlockStyle: "fenced",
@@ -67,6 +68,20 @@ const getProperties = ($: cheerio.Root): Webhook["properties"] => {
   const propertiesEl = getPropertiesEl($);
   const properties: Webhook["properties"] = {};
 
+  const accessByString = (
+    str: string,
+    value: { type: string; description: string },
+    obj: { [key: string]: any }
+  ) => {
+    const matches = [...str.matchAll(/(\w+)/g)];
+    return matches.reduce((cursor, [, key], index) => {
+      if (index + 1 === matches.length) {
+        return (cursor[key] = value);
+      }
+      return (cursor[key] = { ...cursor[key] });
+    }, obj);
+  };
+
   propertiesEl.forEach((propertyEl) => {
     const [keyEl, typeEl, descriptionEl] = $(propertyEl)
       .find("td")
@@ -78,7 +93,8 @@ const getProperties = ($: cheerio.Root): Webhook["properties"] => {
         $(descriptionEl).html() ?? ""
       );
 
-      properties[key] = { type, description };
+      accessByString(key, { type, description }, properties);
+      //properties[key] = { type, description };
     }
   });
 
