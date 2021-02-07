@@ -74,7 +74,7 @@ const getProperties = ($: cheerio.Root): Webhook["properties"] => {
       type: JSONSchema7TypeName;
       description: string;
     },
-    obj: { [key: string]: any }
+    obj: Record<string, any>
   ) => {
     const matches = [...str.matchAll(/(\w+)/g)];
     return matches.reduce((cursor, [, key], index) => {
