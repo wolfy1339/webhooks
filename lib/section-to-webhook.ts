@@ -102,7 +102,6 @@ const getProperties = ($: cheerio.Root): Webhook["properties"] => {
       );
 
       accessByString(key, { type, description }, properties);
-      //properties[key] = { type, description };
     }
   });
 
