@@ -28,6 +28,11 @@
     "typecheck": "tsc -p . --noEmit",
     "validate": "ts-node -T bin/validate-payload-examples.ts"
   },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
   "prettier": {},
   "dependencies": {},
   "devDependencies": {
