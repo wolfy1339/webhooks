@@ -92,7 +92,7 @@ components:
         node_id:
           type: string
         owner:
-          $ref: "#/components/requestBodies/user"
+          $ref: "#/components/schemas/user"
         name:
           description: The name of the GitHub app
           type: string
@@ -334,7 +334,7 @@ components:
             sha:
               type: string
             repo:
-              $ref: "#/components/requestBodies/repo-ref"
+              $ref: "#/components/schemas/repo-ref"
           additionalProperties: false
         base:
           type: object
@@ -348,7 +348,7 @@ components:
             sha:
               type: string
             repo:
-              $ref: "#/components/requestBodies/repo-ref"
+              $ref: "#/components/schemas/repo-ref"
           additionalProperties: false
       additionalProperties: false
       title: Check Run Pull Request
@@ -371,9 +371,9 @@ components:
         timestamp:
           type: string
         author:
-          $ref: "#/components/requestBodies/committer"
+          $ref: "#/components/schemas/committer"
         committer:
-          $ref: "#/components/requestBodies/committer"
+          $ref: "#/components/schemas/committer"
       additionalProperties: false
       title: SimpleCommit
     commit:
@@ -411,9 +411,9 @@ components:
           format: uri
           description: URL that points to the commit API resource.
         author:
-          $ref: "#/components/requestBodies/committer"
+          $ref: "#/components/schemas/committer"
         committer:
-          $ref: "#/components/requestBodies/committer"
+          $ref: "#/components/schemas/committer"
         added:
           type: array
           items:
@@ -522,7 +522,7 @@ components:
             - "null"
         answer_chosen_by:
           oneOf:
-            - $ref: "#/components/requestBodies/user"
+            - $ref: "#/components/schemas/user"
             - type: "null"
         html_url:
           type: string
@@ -535,7 +535,7 @@ components:
         title:
           type: string
         user:
-          $ref: "#/components/requestBodies/user"
+          $ref: "#/components/schemas/user"
         state:
           type: string
           enum:
@@ -552,7 +552,7 @@ components:
           type: string
           format: date-time
         author_association:
-          $ref: "#/components/requestBodies/author_association"
+          $ref: "#/components/schemas/author_association"
         active_lock_reason:
           type:
             - string
@@ -693,7 +693,7 @@ components:
           type: integer
           description: The ID of the installation.
         account:
-          $ref: "#/components/requestBodies/user"
+          $ref: "#/components/schemas/user"
         repository_selection:
           type: string
           enum:
@@ -959,7 +959,7 @@ components:
             type: string
         suspended_by:
           oneOf:
-            - $ref: "#/components/requestBodies/user"
+            - $ref: "#/components/schemas/user"
             - type: "null"
         suspended_at:
           type:
@@ -999,7 +999,7 @@ components:
         node_id:
           type: string
         user:
-          $ref: "#/components/requestBodies/user"
+          $ref: "#/components/schemas/user"
         created_at:
           type: string
           format: date-time
@@ -1007,13 +1007,13 @@ components:
           type: string
           format: date-time
         author_association:
-          $ref: "#/components/requestBodies/author_association"
+          $ref: "#/components/schemas/author_association"
         body:
           type: string
           description: Contents of the issue comment
         performed_via_github_app:
           oneOf:
-            - $ref: "#/components/requestBodies/app"
+            - $ref: "#/components/schemas/app"
             - type: "null"
       additionalProperties: false
       description: The
@@ -1073,11 +1073,11 @@ components:
           type: string
           description: Title of the issue
         user:
-          $ref: "#/components/requestBodies/user"
+          $ref: "#/components/schemas/user"
         labels:
           type: array
           items:
-            $ref: "#/components/requestBodies/label"
+            $ref: "#/components/schemas/label"
         state:
           type: string
           enum:
@@ -1088,15 +1088,15 @@ components:
           type: boolean
         assignee:
           oneOf:
-            - $ref: "#/components/requestBodies/user"
+            - $ref: "#/components/schemas/user"
             - type: "null"
         assignees:
           type: array
           items:
-            $ref: "#/components/requestBodies/user"
+            $ref: "#/components/schemas/user"
         milestone:
           oneOf:
-            - $ref: "#/components/requestBodies/milestone"
+            - $ref: "#/components/schemas/milestone"
             - type: "null"
         comments:
           type: integer
@@ -1112,7 +1112,7 @@ components:
             - "null"
           format: date-time
         author_association:
-          $ref: "#/components/requestBodies/author_association"
+          $ref: "#/components/schemas/author_association"
         active_lock_reason:
           type:
             - string
@@ -1125,7 +1125,7 @@ components:
             - null
         performed_via_github_app:
           oneOf:
-            - $ref: "#/components/requestBodies/app"
+            - $ref: "#/components/schemas/app"
             - type: "null"
         pull_request:
           type: object
@@ -1313,7 +1313,7 @@ components:
           type: string
           format: uri
         user:
-          $ref: "#/components/requestBodies/user"
+          $ref: "#/components/schemas/user"
       additionalProperties: false
       title: Membership
     milestone:
@@ -1361,7 +1361,7 @@ components:
             - string
             - "null"
         creator:
-          $ref: "#/components/requestBodies/user"
+          $ref: "#/components/schemas/user"
         open_issues:
           type: integer
         closed_issues:
@@ -1484,7 +1484,7 @@ components:
           type: boolean
           description: Whether or not the card is archived
         creator:
-          $ref: "#/components/requestBodies/user"
+          $ref: "#/components/schemas/user"
         created_at:
           type: string
           format: date-time
@@ -1585,7 +1585,7 @@ components:
             - closed
           description: State of the project; either 'open' or 'closed'
         creator:
-          $ref: "#/components/requestBodies/user"
+          $ref: "#/components/schemas/user"
         created_at:
           type: string
           format: date-time
@@ -1658,7 +1658,7 @@ components:
           type: string
           description: The SHA of the original commit to which the comment applies.
         user:
-          $ref: "#/components/requestBodies/user"
+          $ref: "#/components/schemas/user"
         body:
           type: string
           description: The text of the comment.
@@ -1677,7 +1677,7 @@ components:
           format: uri
           description: URL for the pull request that the review comment belongs to.
         author_association:
-          $ref: "#/components/requestBodies/author_association"
+          $ref: "#/components/schemas/author_association"
         _links:
           type: object
           required:
@@ -1686,11 +1686,11 @@ components:
             - pull_request
           properties:
             self:
-              $ref: "#/components/requestBodies/link"
+              $ref: "#/components/schemas/link"
             html:
-              $ref: "#/components/requestBodies/link"
+              $ref: "#/components/schemas/link"
             pull_request:
-              $ref: "#/components/requestBodies/link"
+              $ref: "#/components/schemas/link"
           additionalProperties: false
         start_line:
           type:
@@ -1824,7 +1824,7 @@ components:
           type: string
           description: The title of the pull request.
         user:
-          $ref: "#/components/requestBodies/user"
+          $ref: "#/components/schemas/user"
         body:
           type: string
         created_at:
@@ -1849,29 +1849,29 @@ components:
             - "null"
         assignee:
           oneOf:
-            - $ref: "#/components/requestBodies/user"
+            - $ref: "#/components/schemas/user"
             - type: "null"
         assignees:
           type: array
           items:
-            $ref: "#/components/requestBodies/user"
+            $ref: "#/components/schemas/user"
         requested_reviewers:
           type: array
           items:
             oneOf:
-              - $ref: "#/components/requestBodies/user"
-              - $ref: "#/components/requestBodies/team"
+              - $ref: "#/components/schemas/user"
+              - $ref: "#/components/schemas/team"
         requested_teams:
           type: array
           items:
-            $ref: "#/components/requestBodies/team"
+            $ref: "#/components/schemas/team"
         labels:
           type: array
           items:
-            $ref: "#/components/requestBodies/label"
+            $ref: "#/components/schemas/label"
         milestone:
           oneOf:
-            - $ref: "#/components/requestBodies/milestone"
+            - $ref: "#/components/schemas/milestone"
             - type: "null"
         commits_url:
           type: string
@@ -1904,9 +1904,9 @@ components:
             sha:
               type: string
             user:
-              $ref: "#/components/requestBodies/user"
+              $ref: "#/components/schemas/user"
             repo:
-              $ref: "#/components/requestBodies/repository"
+              $ref: "#/components/schemas/repository"
           additionalProperties: false
         base:
           type: object
@@ -1924,9 +1924,9 @@ components:
             sha:
               type: string
             user:
-              $ref: "#/components/requestBodies/user"
+              $ref: "#/components/schemas/user"
             repo:
-              $ref: "#/components/requestBodies/repository"
+              $ref: "#/components/schemas/repository"
           additionalProperties: false
         _links:
           type: object
@@ -1941,24 +1941,24 @@ components:
             - statuses
           properties:
             self:
-              $ref: "#/components/requestBodies/link"
+              $ref: "#/components/schemas/link"
             html:
-              $ref: "#/components/requestBodies/link"
+              $ref: "#/components/schemas/link"
             issue:
-              $ref: "#/components/requestBodies/link"
+              $ref: "#/components/schemas/link"
             comments:
-              $ref: "#/components/requestBodies/link"
+              $ref: "#/components/schemas/link"
             review_comments:
-              $ref: "#/components/requestBodies/link"
+              $ref: "#/components/schemas/link"
             review_comment:
-              $ref: "#/components/requestBodies/link"
+              $ref: "#/components/schemas/link"
             commits:
-              $ref: "#/components/requestBodies/link"
+              $ref: "#/components/schemas/link"
             statuses:
-              $ref: "#/components/requestBodies/link"
+              $ref: "#/components/schemas/link"
           additionalProperties: false
         author_association:
-          $ref: "#/components/requestBodies/author_association"
+          $ref: "#/components/schemas/author_association"
         auto_merge:
           type: "null"
         active_lock_reason:
@@ -1990,7 +1990,7 @@ components:
           type: string
         merged_by:
           oneOf:
-            - $ref: "#/components/requestBodies/user"
+            - $ref: "#/components/schemas/user"
             - type: "null"
         comments:
           type: integer
@@ -2059,7 +2059,7 @@ components:
           type: string
           format: date-time
         uploader:
-          $ref: "#/components/requestBodies/user"
+          $ref: "#/components/schemas/user"
       additionalProperties: false
       title: Release Asset
     repo-ref:
@@ -2229,7 +2229,7 @@ components:
           type: string
           format: uri-template
         owner:
-          $ref: "#/components/requestBodies/user"
+          $ref: "#/components/schemas/user"
         private:
           type: boolean
           description: Whether the repository is private or public.
@@ -2356,7 +2356,7 @@ components:
           type: boolean
           description: Whether the repository is private or public.
         owner:
-          $ref: "#/components/requestBodies/user"
+          $ref: "#/components/schemas/user"
         html_url:
           type: string
           format: uri
@@ -2552,7 +2552,7 @@ components:
           type: integer
         license:
           oneOf:
-            - $ref: "#/components/requestBodies/license"
+            - $ref: "#/components/schemas/license"
             - type: "null"
         forks:
           type: integer
@@ -2678,7 +2678,7 @@ components:
         title:
           type: string
         user:
-          $ref: "#/components/requestBodies/user"
+          $ref: "#/components/schemas/user"
         body:
           type: string
         created_at:
@@ -2699,29 +2699,29 @@ components:
             - "null"
         assignee:
           oneOf:
-            - $ref: "#/components/requestBodies/user"
+            - $ref: "#/components/schemas/user"
             - type: "null"
         assignees:
           type: array
           items:
-            $ref: "#/components/requestBodies/user"
+            $ref: "#/components/schemas/user"
         requested_reviewers:
           type: array
           items:
             oneOf:
-              - $ref: "#/components/requestBodies/user"
-              - $ref: "#/components/requestBodies/team"
+              - $ref: "#/components/schemas/user"
+              - $ref: "#/components/schemas/team"
         requested_teams:
           type: array
           items:
-            $ref: "#/components/requestBodies/team"
+            $ref: "#/components/schemas/team"
         labels:
           type: array
           items:
-            $ref: "#/components/requestBodies/label"
+            $ref: "#/components/schemas/label"
         milestone:
           oneOf:
-            - $ref: "#/components/requestBodies/milestone"
+            - $ref: "#/components/schemas/milestone"
             - type: "null"
         draft:
           type: boolean
@@ -2756,9 +2756,9 @@ components:
             sha:
               type: string
             user:
-              $ref: "#/components/requestBodies/user"
+              $ref: "#/components/schemas/user"
             repo:
-              $ref: "#/components/requestBodies/repository"
+              $ref: "#/components/schemas/repository"
           additionalProperties: false
         base:
           type: object
@@ -2776,9 +2776,9 @@ components:
             sha:
               type: string
             user:
-              $ref: "#/components/requestBodies/user"
+              $ref: "#/components/schemas/user"
             repo:
-              $ref: "#/components/requestBodies/repository"
+              $ref: "#/components/schemas/repository"
           additionalProperties: false
         _links:
           type: object
@@ -2793,24 +2793,24 @@ components:
             - statuses
           properties:
             self:
-              $ref: "#/components/requestBodies/link"
+              $ref: "#/components/schemas/link"
             html:
-              $ref: "#/components/requestBodies/link"
+              $ref: "#/components/schemas/link"
             issue:
-              $ref: "#/components/requestBodies/link"
+              $ref: "#/components/schemas/link"
             comments:
-              $ref: "#/components/requestBodies/link"
+              $ref: "#/components/schemas/link"
             review_comments:
-              $ref: "#/components/requestBodies/link"
+              $ref: "#/components/schemas/link"
             review_comment:
-              $ref: "#/components/requestBodies/link"
+              $ref: "#/components/schemas/link"
             commits:
-              $ref: "#/components/requestBodies/link"
+              $ref: "#/components/schemas/link"
             statuses:
-              $ref: "#/components/requestBodies/link"
+              $ref: "#/components/schemas/link"
           additionalProperties: false
         author_association:
-          $ref: "#/components/requestBodies/author_association"
+          $ref: "#/components/schemas/author_association"
         auto_merge:
           type: "null"
         active_lock_reason:
@@ -3108,9 +3108,9 @@ components:
         head_branch:
           type: string
         head_commit:
-          $ref: "#/components/requestBodies/commit-simple"
+          $ref: "#/components/schemas/commit-simple"
         head_repository:
-          $ref: "#/components/requestBodies/repository-lite"
+          $ref: "#/components/schemas/repository-lite"
         head_sha:
           type: string
         html_url:
@@ -3131,9 +3131,9 @@ components:
         pull_requests:
           type: array
           items:
-            $ref: "#/components/requestBodies/pull-request"
+            $ref: "#/components/schemas/pull-request"
         repository:
-          $ref: "#/components/requestBodies/repository-lite"
+          $ref: "#/components/schemas/repository-lite"
         rerun_url:
           type: string
           format: uri
